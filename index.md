@@ -14,13 +14,37 @@ MoMEMta is based on:
  - External PDFs (LHAPDF by default)
  - External Matrix Element (provided with MadGraph C++ exporter)
 
-# Get MoMEMta
+# Getting started
 
-Blabla
+You first need to install MoMEMta. A guide on how-to install from source is available [on our github repository](https://github.com/MoMEMta/MoMEMta/blob/prototype/README.md#install). You can then browse our [documentation](http://momemta.github.io/MoMEMta/) to learn more about MoMEMta.
 
-# Documentation
+# Usage example
 
-For more information, checkout out the MoMEMta [documentation](http://momemta.github.io/MoMEMta/).
+```cpp
+#include <momemta/ConfigurationReader.h>
+#include <momemta/Logging.h>
+#include <momemta/MoMEMta.h>
+#include <momemta/Utils.h>
+
+int main(int argc, char** argv) {
+
+    ConfigurationReader configuration("tt_fullyleptonic.lua");
+    MoMEMta weight(configuration.freeze());
+
+    LorentzVector p3(16.171895980835, -13.7919054031372, -3.42997527122497, 21.5293197631836);
+    LorentzVector p4(-55.7908325195313, -111.59294128418, -122.144721984863, 174.66259765625);
+    LorentzVector p5(-18.9018573760986, 10.0896110534668, -0.602926552295686, 21.4346446990967);
+    LorentzVector p6(71.3899612426758, 96.0094833374023, -77.2513122558594, 142.492813110352);
+
+    std::vector<std::pair<double, double>> weights = weight.computeWeights({p3, p4, p5, p6});
+
+    std::cout << "Result: " << weights.back().first << " +- " << weights.back().second;
+    
+    return 0;
+}
+```
+
+More examples can be found [here](https://github.com/MoMEMta/MoMEMta/tree/prototype/examples).
 
 # Our team
 
