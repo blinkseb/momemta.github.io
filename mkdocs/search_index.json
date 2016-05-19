@@ -1,0 +1,54 @@
+{
+    "docs": [
+        {
+            "location": "/", 
+            "text": "The MoMEMta project\n#\n\n\nMoMEMta\n is a software package designed in a modular way to cover the needs of the experimental analysis workflows at the LHC. MoMEMta provides working examples for the most common final states (ttbar, WW, ...). If you are expert user, be prepared to feel the freedom of configure your MEM computation at all levels.\n\n\nMoMEMta is based on:\n\n\n\n\nC++, ROOT, Lua scripting language\n\n\nCuba library for integration\n\n\nExternal PDFs (LHAPDF by default)\n\n\nExternal Matrix Element (provided with MadGraph C++ exporter)\n\n\n\n\nGetting started\n#\n\n\nYou first need to install MoMEMta. A guide on how-to install from source is available \non our github repository\n. You can then browse our \ndocumentation\n to learn more about MoMEMta.\n\n\nUsage example\n#\n\n\n#include\n \nmomemta/ConfigurationReader.h\n\n\n#include\n \nmomemta/Logging.h\n\n\n#include\n \nmomemta/MoMEMta.h\n\n\n#include\n \nmomemta/Utils.h\n\n\n\nint\n \nmain\n(\nint\n \nargc\n,\n \nchar\n**\n \nargv\n)\n \n{\n\n\n    \nConfigurationReader\n \nconfiguration\n(\ntt_fullyleptonic.lua\n);\n\n    \nMoMEMta\n \nweight\n(\nconfiguration\n.\nfreeze\n());\n\n\n    \nLorentzVector\n \np3\n(\n16.17\n,\n \n-\n13.79\n,\n \n-\n3.43\n,\n \n21.53\n);\n\n    \nLorentzVector\n \np4\n(\n-\n55.79\n,\n \n-\n111.59\n,\n \n-\n122.14\n,\n \n174.66\n);\n\n    \nLorentzVector\n \np5\n(\n-\n18.90\n,\n \n10.09\n,\n \n-\n0.60\n,\n \n21.43\n);\n\n    \nLorentzVector\n \np6\n(\n71.39\n,\n \n96.01\n,\n \n-\n77.25\n,\n \n142.50\n);\n\n\n    \nstd\n::\nvector\nstd\n::\npair\ndouble\n,\n \ndouble\n \nweights\n \n=\n \nweight\n.\ncomputeWeights\n({\np3\n,\n \np4\n,\n \np5\n,\n \np6\n});\n\n\n    \nstd\n::\ncout\n \n \nResult: \n \n \nweights\n.\nback\n().\nfirst\n \n \n +- \n \n \nweights\n.\nback\n().\nsecond\n;\n\n\n    \nreturn\n \n0\n;\n\n\n}\n\n\n\n\n\n\nMore examples can be found \nhere\n.\n\n\nOur team\n#\n\n\n\n\nS\u00e9bastien Brochet\n\n\nAlessia Saggio\n\n\nMiguel Vidal\n\n\nS\u00e9bastien Wertz", 
+            "title": "MoMEMta"
+        }, 
+        {
+            "location": "/#the-momemta-project", 
+            "text": "MoMEMta  is a software package designed in a modular way to cover the needs of the experimental analysis workflows at the LHC. MoMEMta provides working examples for the most common final states (ttbar, WW, ...). If you are expert user, be prepared to feel the freedom of configure your MEM computation at all levels.  MoMEMta is based on:   C++, ROOT, Lua scripting language  Cuba library for integration  External PDFs (LHAPDF by default)  External Matrix Element (provided with MadGraph C++ exporter)", 
+            "title": "The MoMEMta project"
+        }, 
+        {
+            "location": "/#getting-started", 
+            "text": "You first need to install MoMEMta. A guide on how-to install from source is available  on our github repository . You can then browse our  documentation  to learn more about MoMEMta.", 
+            "title": "Getting started"
+        }, 
+        {
+            "location": "/#usage-example", 
+            "text": "#include   momemta/ConfigurationReader.h  #include   momemta/Logging.h  #include   momemta/MoMEMta.h  #include   momemta/Utils.h  int   main ( int   argc ,   char **   argv )   { \n\n     ConfigurationReader   configuration ( tt_fullyleptonic.lua ); \n     MoMEMta   weight ( configuration . freeze ()); \n\n     LorentzVector   p3 ( 16.17 ,   - 13.79 ,   - 3.43 ,   21.53 ); \n     LorentzVector   p4 ( - 55.79 ,   - 111.59 ,   - 122.14 ,   174.66 ); \n     LorentzVector   p5 ( - 18.90 ,   10.09 ,   - 0.60 ,   21.43 ); \n     LorentzVector   p6 ( 71.39 ,   96.01 ,   - 77.25 ,   142.50 ); \n\n     std :: vector std :: pair double ,   double   weights   =   weight . computeWeights ({ p3 ,   p4 ,   p5 ,   p6 }); \n\n     std :: cout     Result:      weights . back (). first      +-      weights . back (). second ; \n\n     return   0 ;  }   More examples can be found  here .", 
+            "title": "Usage example"
+        }, 
+        {
+            "location": "/#our-team", 
+            "text": "S\u00e9bastien Brochet  Alessia Saggio  Miguel Vidal  S\u00e9bastien Wertz", 
+            "title": "Our team"
+        }, 
+        {
+            "location": "/getting-started/installation/", 
+            "text": "How to install MoMEMta\n#\n\n\nPrerequisites\n#\n\n\nMoMEMta depends on the following libraries and tools:\n\n\n\n\nLHAPDF (\n=6)\n\n\nCMake (\n=3.2)\n\n\nBoost (\n=1.54)\n\n\nROOT (\n=5.34.09)\n\n\nA C++11-capable compiler\n\n\n\n\nNote\n: MoMEMta has only been tested on GNU/Linux.\n\n\nCompilation\n#\n\n\nRetrieve the code on \nour github repository\n. Unpack the archive and / or go to the \nMoMEMta\n directory. Next, execute the following:\n\n\nmkdir build\ncd build\ncmake ..\nmake -j 4\n\n\n\n\n\nYou can now use the library \nlibmomemta.so\n with your own code.\n\n\nIf you have admin rights on your system, you can make MoMEMta (public headers and library) available system-wide using:\n\n\nmake install\n\n\n\n\n\nBuild options\n#\n\n\nThe following options are available when configuring the build (when running \ncmake ..\n):\n\n\n\n\n-DCMAKE_INSTALL_PREFIX=(path)\n: Install MoMEMta in a specific location when running \nmake install\n (useful if you don't have admin rights)\n\n\n-DPROFILING=ON\n: Generate debugging symbols and profiling information (requires \ngperftools\n)\n\n\n-DBOOST_ROOT=(path)\n: Use specific Boost library installation\n\n\n-DTESTS=ON\n: Also compile the test executables\n\n\n-DEXAMPLES=OFF\n: Do not compile the example executables", 
+            "title": "Installation"
+        }, 
+        {
+            "location": "/getting-started/installation/#how-to-install-momemta", 
+            "text": "", 
+            "title": "How to install MoMEMta"
+        }, 
+        {
+            "location": "/getting-started/installation/#prerequisites", 
+            "text": "MoMEMta depends on the following libraries and tools:   LHAPDF ( =6)  CMake ( =3.2)  Boost ( =1.54)  ROOT ( =5.34.09)  A C++11-capable compiler   Note : MoMEMta has only been tested on GNU/Linux.", 
+            "title": "Prerequisites"
+        }, 
+        {
+            "location": "/getting-started/installation/#compilation", 
+            "text": "Retrieve the code on  our github repository . Unpack the archive and / or go to the  MoMEMta  directory. Next, execute the following:  mkdir build\ncd build\ncmake ..\nmake -j 4  You can now use the library  libmomemta.so  with your own code.  If you have admin rights on your system, you can make MoMEMta (public headers and library) available system-wide using:  make install", 
+            "title": "Compilation"
+        }, 
+        {
+            "location": "/getting-started/installation/#build-options", 
+            "text": "The following options are available when configuring the build (when running  cmake .. ):   -DCMAKE_INSTALL_PREFIX=(path) : Install MoMEMta in a specific location when running  make install  (useful if you don't have admin rights)  -DPROFILING=ON : Generate debugging symbols and profiling information (requires  gperftools )  -DBOOST_ROOT=(path) : Use specific Boost library installation  -DTESTS=ON : Also compile the test executables  -DEXAMPLES=OFF : Do not compile the example executables", 
+            "title": "Build options"
+        }
+    ]
+}

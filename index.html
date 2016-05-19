@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]> <html class="no-js ie6"> <![endif]-->
+<!--[if IE 7 ]>    <html class="no-js ie7"> <![endif]-->
+<!--[if IE 8 ]>    <html class="no-js ie8"> <![endif]-->
+<!--[if IE 9 ]>    <html class="no-js ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html class="no-js"> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
+    
+      
+        <title>MoMEMta - Modular Matrix Element Method implementation</title>
+      
+      
+        <meta name="description" content="Modular Matrix Element Method implementation">
+      
+      
+        <link rel="canonical" href="https://momemta.github.io/">
+      
+      
+        <meta name="author" content="The MoMEMta team">
+      
+    
+    <meta property="og:url" content="https://momemta.github.io/">
+    <meta property="og:title" content="MoMEMta">
+    <meta property="og:image" content="https://momemta.github.io//./">
+    <meta name="apple-mobile-web-app-title" content="MoMEMta">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    
+    
+    <link rel="shortcut icon" type="image/x-icon" href="./None">
+    <link rel="icon" type="image/x-icon" href="./None">
+    <style>
+      @font-face {
+      	font-family: 'Icon';
+      	src: url('./assets/fonts/icon.eot?52m981');
+      	src: url('./assets/fonts/icon.eot?#iefix52m981')
+               format('embedded-opentype'),
+      		   url('./assets/fonts/icon.woff?52m981')
+               format('woff'),
+      		   url('./assets/fonts/icon.ttf?52m981')
+               format('truetype'),
+      		   url('./assets/fonts/icon.svg?52m981#icon')
+               format('svg');
+      	font-weight: normal;
+      	font-style: normal;
+      }
+    </style>
+    <link rel="stylesheet" href="./assets/stylesheets/application-854d31332d.css">
+    
+      <link rel="stylesheet" href="./assets/stylesheets/palettes-2d6c5d2926.css">
+    
+    
+      
+      
+      
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ubuntu:400,700|Ubuntu+Mono">
+      <style>
+        body, input {
+          font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
+        }
+        pre, code {
+          font-family: 'Ubuntu Mono', 'Courier New', 'Courier', monospace;
+        }
+      </style>
+    
+    
+    <script src="./assets/javascripts/modernizr-4a5cc7e01e.js"></script>
+    
+  </head>
+  
+  
+  
+  <body class="palette-primary-blue-grey palette-accent-teal">
+    
+      
+      
+    
+    <div class="backdrop">
+      <div class="backdrop-paper"></div>
+    </div>
+    <input class="toggle" type="checkbox" id="toggle-drawer">
+    <input class="toggle" type="checkbox" id="toggle-search">
+    <label class="toggle-button overlay" for="toggle-drawer"></label>
+    <header class="header">
+      <nav aria-label="Header">
+  <div class="bar default">
+    <div class="button button-menu" role="button" aria-label="Menu">
+      <label class="toggle-button icon icon-menu" for="toggle-drawer">
+        <span></span>
+      </label>
+    </div>
+    <div class="stretch">
+      <div class="title">
+        
+          <span class="path">
+            
+          </span>
+        
+        MoMEMta
+      </div>
+    </div>
+    
+    
+    <div class="button button-search" role="button" aria-label="Search">
+      <label class="toggle-button icon icon-search" title="Search" for="toggle-search"></label>
+    </div>
+  </div>
+  <div class="bar search">
+    <div class="button button-close" role="button" aria-label="Close">
+      <label class="toggle-button icon icon-back" for="toggle-search"></label>
+    </div>
+    <div class="stretch">
+      <div class="field">
+        <input class="query" type="text" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false">
+      </div>
+    </div>
+    <div class="button button-reset" role="button" aria-label="Search">
+      <button class="toggle-button icon icon-close" id="reset-search"></button>
+    </div>
+  </div>
+</nav>
+    </header>
+    <main class="main">
+      
+      <div class="drawer">
+        <nav aria-label="Navigation">
+  
+  <a href="https://github.com/MoMEMta/MoMEMta" class="project">
+    <div class="banner">
+      
+      <div class="name">
+        <strong>
+          MoMEMta
+          <span class="version">
+            0.1.0
+          </span>
+        </strong>
+        
+          <br>
+          MoMEMta/MoMEMta
+        
+      </div>
+    </div>
+  </a>
+  <div class="scrollable">
+    <div class="wrapper">
+      
+        <ul class="repo">
+          <li class="repo-download">
+            
+            <a href="https://github.com/MoMEMta/MoMEMta/archive/0.1.0.zip" target="_blank" title="Download" data-action="download">
+              <i class="icon icon-download"></i> Download
+            </a>
+          </li>
+          <li class="repo-stars">
+            <a href="https://github.com/MoMEMta/MoMEMta/stargazers" target="_blank" title="Stargazers" data-action="star">
+              <i class="icon icon-star"></i> Stars
+              <span class="count">&ndash;</span>
+            </a>
+          </li>
+        </ul>
+        <hr>
+      
+      <div class="toc">
+        <ul>
+          
+            
+  <li>
+    <a class="current" title="MoMEMta" href=".">
+      MoMEMta
+    </a>
+    
+      
+        
+      
+      
+        <ul>
+          
+            <li class="anchor">
+              <a title="Getting started" href="#getting-started">
+                Getting started
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="Usage example" href="#usage-example">
+                Usage example
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="Our team" href="#our-team">
+                Our team
+              </a>
+            </li>
+          
+        </ul>
+      
+    
+  </li>
+
+          
+            
+  <li>
+    <span class="section">Getting started</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="Installation" href="getting-started/installation/">
+      Installation
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+          
+        </ul>
+        
+        
+          <hr>
+          <ul>
+          
+              
+              <li>
+                <a href="https://momemta.github.io/MoMEMta/" target="_blank" title="Technical documentation">
+                    Technical documentation
+                </a>
+              </li>
+          
+              
+              <li>
+                <a href="mailto:momemta-contact@cern.ch" target="_blank" title="Contact us">
+                    Contact us
+                </a>
+              </li>
+          
+          </ul>
+        
+        <small>This work would not have been possible without the help of the MadWeight team and funding of</small>
+      </div>
+    </div>
+  </div>
+</nav>
+      </div>
+      <article class="article">
+        <div class="wrapper">
+          
+          <h1 id="the-momemta-project">The MoMEMta project<a class="headerlink" href="#the-momemta-project" title="Permanent link">#</a></h1>
+<p><strong>MoMEMta</strong> is a software package designed in a modular way to cover the needs of the experimental analysis workflows at the LHC. MoMEMta provides working examples for the most common final states (ttbar, WW, ...). If you are expert user, be prepared to feel the freedom of configure your MEM computation at all levels.</p>
+<p>MoMEMta is based on:</p>
+<ul>
+<li>C++, ROOT, Lua scripting language</li>
+<li>Cuba library for integration</li>
+<li>External PDFs (LHAPDF by default)</li>
+<li>External Matrix Element (provided with MadGraph C++ exporter)</li>
+</ul>
+<h2 id="getting-started">Getting started<a class="headerlink" href="#getting-started" title="Permanent link">#</a></h2>
+<p>You first need to install MoMEMta. A guide on how-to install from source is available <a href="https://github.com/MoMEMta/MoMEMta/blob/prototype/README.md#install">on our github repository</a>. You can then browse our <a href="http://momemta.github.io/MoMEMta/">documentation</a> to learn more about MoMEMta.</p>
+<h2 id="usage-example">Usage example<a class="headerlink" href="#usage-example" title="Permanent link">#</a></h2>
+<div class="code"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;momemta/ConfigurationReader.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;momemta/Logging.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;momemta/MoMEMta.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;momemta/Utils.h&gt;</span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span><span class="o">**</span> <span class="n">argv</span><span class="p">)</span> <span class="p">{</span>
+
+    <span class="n">ConfigurationReader</span> <span class="n">configuration</span><span class="p">(</span><span class="s">&quot;tt_fullyleptonic.lua&quot;</span><span class="p">);</span>
+    <span class="n">MoMEMta</span> <span class="n">weight</span><span class="p">(</span><span class="n">configuration</span><span class="p">.</span><span class="n">freeze</span><span class="p">());</span>
+
+    <span class="n">LorentzVector</span> <span class="n">p3</span><span class="p">(</span><span class="mf">16.17</span><span class="p">,</span> <span class="o">-</span><span class="mf">13.79</span><span class="p">,</span> <span class="o">-</span><span class="mf">3.43</span><span class="p">,</span> <span class="mf">21.53</span><span class="p">);</span>
+    <span class="n">LorentzVector</span> <span class="n">p4</span><span class="p">(</span><span class="o">-</span><span class="mf">55.79</span><span class="p">,</span> <span class="o">-</span><span class="mf">111.59</span><span class="p">,</span> <span class="o">-</span><span class="mf">122.14</span><span class="p">,</span> <span class="mf">174.66</span><span class="p">);</span>
+    <span class="n">LorentzVector</span> <span class="n">p5</span><span class="p">(</span><span class="o">-</span><span class="mf">18.90</span><span class="p">,</span> <span class="mf">10.09</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.60</span><span class="p">,</span> <span class="mf">21.43</span><span class="p">);</span>
+    <span class="n">LorentzVector</span> <span class="n">p6</span><span class="p">(</span><span class="mf">71.39</span><span class="p">,</span> <span class="mf">96.01</span><span class="p">,</span> <span class="o">-</span><span class="mf">77.25</span><span class="p">,</span> <span class="mf">142.50</span><span class="p">);</span>
+
+    <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">pair</span><span class="o">&lt;</span><span class="kt">double</span><span class="p">,</span> <span class="kt">double</span><span class="o">&gt;&gt;</span> <span class="n">weights</span> <span class="o">=</span> <span class="n">weight</span><span class="p">.</span><span class="n">computeWeights</span><span class="p">({</span><span class="n">p3</span><span class="p">,</span> <span class="n">p4</span><span class="p">,</span> <span class="n">p5</span><span class="p">,</span> <span class="n">p6</span><span class="p">});</span>
+
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Result: &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">weights</span><span class="p">.</span><span class="n">back</span><span class="p">().</span><span class="n">first</span> <span class="o">&lt;&lt;</span> <span class="s">&quot; +- &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">weights</span><span class="p">.</span><span class="n">back</span><span class="p">().</span><span class="n">second</span><span class="p">;</span>
+
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>More examples can be found <a href="https://github.com/MoMEMta/MoMEMta/tree/prototype/examples">here</a>.</p>
+<h2 id="our-team">Our team<a class="headerlink" href="#our-team" title="Permanent link">#</a></h2>
+<ul>
+<li>Sébastien Brochet</li>
+<li>Alessia Saggio</li>
+<li>Miguel Vidal</li>
+<li>Sébastien Wertz</li>
+</ul>
+          <aside class="copyright" role="note">
+            
+            Documentation built with
+            <a href="http://www.mkdocs.org" target="_blank">MkDocs</a>
+            using the
+            <a href="http://squidfunk.github.io/mkdocs-material/" target="_blank">
+              Material
+            </a>
+            theme.
+          </aside>
+          
+            <footer class="footer">
+              
+  <nav class="pagination" aria-label="Footer">
+    <div class="previous">
+      
+    </div>
+    <div class="next">
+      
+        <a href="getting-started/installation/" title="Installation">
+          <span class="direction">
+            Next
+          </span>
+          <div class="page">
+            <div class="stretch">
+              <div class="title">
+                Installation
+              </div>
+            </div>
+            <div class="button button-next" role="button" aria-label="Next">
+              <i class="icon icon-forward"></i>
+            </div>
+          </div>
+        </a>
+      
+    </div>
+  </nav>
+
+            </footer>
+          
+        </div>
+      </article>
+      <div class="results" role="status" aria-live="polite">
+        <div class="scrollable">
+          <div class="wrapper">
+            <div class="meta"></div>
+            <div class="list"></div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script>
+      var base_url = '.';
+      var repo_id  = 'MoMEMta/MoMEMta';
+    </script>
+    <script src="./assets/javascripts/application-dfb6964a49.js"></script>
+    
+    
+  </body>
+</html>
